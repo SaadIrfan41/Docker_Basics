@@ -1,6 +1,6 @@
 # Python Docker Application
 
-This repository contains a Python application that can be containerized using Docker. The container will be build on top of the `python:3.12-slim` Docker image and executes the `main.py` script.
+This repository contains a Python application that can be containerized using Docker. The container will be built on top of the `python:3.12-slim` Docker image and executes the `main.py` script.
 
 ## Getting Started
 
@@ -24,6 +24,21 @@ docker build -t your-image-name .
 
 **Important:** Do not forget the Dot `.` at the end of the command. The Dot at the end specifies the current directory as the context where Docker will look for the Dockerfile and other files.
 
+**Note:** When you rebuild an image using the same tag, Docker creates a new image and assigns the tag to this new build. The old image with the same tag is not automatically overwritten but becomes a dangling image. To clean up the old image, you can use the following commands:
+
+1. **Prune Containers:** Remove any containers that are using the old image.
+
+   ```bash
+   docker container prune
+   ```
+
+2. **Prune Dangling Images:** Remove dangling images that are no longer tagged or used.
+   ```bash
+   docker image prune
+   ```
+
+By using these commands, you ensure that old images are cleaned up and only the latest build is tagged and used.
+
 ## Running the Docker Container
 
 Once the image is built, you can run the container using the following command:
@@ -32,8 +47,9 @@ Once the image is built, you can run the container using the following command:
 docker run --name your-container-name your-image-name
 ```
 
-**Important:** The `--name` gives a name to your container with the name `your-container-name`
-**Important:** Replace `your-image-name` with the name of the image you just build above.
+**Important:** The `--name` gives a name to your container with the name `your-container-name`.
+
+**Important:** Replace `your-image-name` with the name of the image you just built above.
 
 ## How it Works
 
@@ -96,3 +112,5 @@ To remove the stopped container, use the following command:
 ```bash
 docker rm your-container-name
 ```
+
+---
