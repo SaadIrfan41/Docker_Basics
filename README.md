@@ -1,6 +1,6 @@
 # Python Docker Application
 
-This repository contains a Python application that can be containerized using Docker. The container is built on top of the `python:3.12-slim` Docker image and executes the `main.py` script.
+This repository contains a Python application that can be containerized using Docker. The container will be build on top of the `python:3.12-slim` Docker image and executes the `main.py` script.
 
 ## Getting Started
 
@@ -18,13 +18,20 @@ To build the Docker image, navigate to the root of your project directory (where
 docker build -t your-image-name .
 ```
 
+**Important:** `-t your-image-name`\*\*: Tags the image with the name `your-image-name`.
+**Important:** Replace `your-image-name` with a name of your choice for the Docker image.
+**Important:** Do not forget the Dot `.` at the end of the command. The Dot at the end specifies the current directory as the context where Docker will look for the Dockerfile and other files.
+
 ## Running the Docker Container
 
 Once the image is built, you can run the container using the following command:
 
 ```bash
-docker run --name your-container-name -d your-image-name
+docker run --name your-container-name your-image-name
 ```
+
+**Important:** The `--name` gives a name to your container with the name `your-container-name`
+**Important:** Replace `your-image-name` with the name of the image you just build above.
 
 ## How it Works
 
