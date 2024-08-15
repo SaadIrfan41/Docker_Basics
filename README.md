@@ -18,8 +18,10 @@ To build the Docker image, navigate to the root of your project directory (where
 docker build -t your-image-name .
 ```
 
-**Important:** `-t your-image-name`\*\*: Tags the image with the name `your-image-name`.
+**Important:** `-t your-image-name`: Tags the image with the name `your-image-name`.
+
 **Important:** Replace `your-image-name` with a name of your choice for the Docker image.
+
 **Important:** Do not forget the Dot `.` at the end of the command. The Dot at the end specifies the current directory as the context where Docker will look for the Dockerfile and other files.
 
 ## Running the Docker Container
